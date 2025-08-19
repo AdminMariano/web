@@ -252,17 +252,70 @@
 
           <!-- Otros artículos -->
           <div class="article">
-            <h2>Controlando un GLCD GDM12864-5 con controlador ST7920 usando CCS C y PIC16F1932</h2>
+            <h2>🕒 Generador de Retardos en ASM para PIC</h2>
             <div class="ficha-tecnica">
               <ul>
-                <li><strong>Pantalla:</strong> GLCD GDM12864-5 (128x64 píxeles, monocromo)</li>
-                <li><strong>Controlador:</strong> ST7920 en modo paralelo 8 bits</li>
-                <li><strong>Microcontrolador:</strong> PIC16F1932</li>
+
+<section class="pic-asm-delay">
+  <p>¿Todavía programas tus PIC en ensamblador como en los buenos tiempos? Entonces este generador de retardos es para ti. 🎯</p>
+  
+  <p>Con esta herramienta puedes calcular fácilmente los ciclos necesarios para generar retardos precisos en milisegundos, usando bucles anidados y registros disponibles en los microcontroladores PIC. Solo ingresas la frecuencia del reloj, el tiempo deseado, ¡y listo! Obtienes el código ASM listo para copiar y pegar en tu proyecto.</p>
+
+  <h3>🔧 Características principales</h3>
+  <ul>
+    <li>Entrada de frecuencia en MHz</li>
+    <li>Retardo deseado en milisegundos</li>
+    <li>Cálculo automático de ciclos y generación de código ASM</li>
+    <li>Precisión exacta (sin error de ciclos)</li>
+    <li>Compatible con bucles dobles y registros estándar</li>
+  </ul>
+</p>
+  <h3>📷 Ejemplo de uso</h3>
+  <figure>    
+<div style="text-align: center;"><img src="images/delaygen.png" alt="Interfaz del generador de retardos PIC ASM" style="width: 300px; height: auto;"></div>	
+    <figcaption>Generación de retardo de 100 ms con frecuencia de 4 MHz</figcaption>
+  </figure>
+</p>
+  <p>El código generado es:</p>
+
+  <pre><code>
+;--------------------------------------------------------------
+; Generado con PIC ASM DELAY el 19/08/2025 Hs 10:10:45 am
+; Descripcion: Delay 100000 ciclos (100.000 ms)
+; Retardo generado: 100.000 ms (100000 ciclos)
+; Error: 0 ciclos (0.000 ms)
+; Precision: Exacta
+; Frecuencia utilizada: 4.00 MHz
+;--------------------------------------------------------------
+
+DEMORA
+MOVLW .100
+MOVWF pDel0
+Loop0 MOVLW .250
+MOVWF pDel1
+Loop1 CLRWDT
+DECFSZ pDel1, 1
+GOTO Loop1
+DECFSZ pDel0, 1
+GOTO Loop0
+RETURN
+  </code></pre>
+
+  <p>Este retardo se genera con <strong>2 bucles</strong> y <strong>2 registros</strong>, usando valores A=250 y B=100. Ideal para temporizaciones simples sin usar periféricos.</p>
+
+  <h3>💡 ¿Por qué usarlo?</h3>
+  <p>Porque a veces lo clásico funciona mejor. Este generador te ahorra tiempo, evita cálculos manuales y te permite mantener el control total sobre tu código ASM. Perfecto para proyectos educativos, sistemas embebidos simples o cuando quieres evitar dependencias externas.</p>
+
+  <p>¡Espero que te sea útil! Si tienes sugerencias o mejoras, no dudes en abrir un issue o contribuir al repositorio. 👨‍🔧👩‍🔧</p>
+</section>
+
+
+
 
               </ul>
               <p>Este driver probado físicamente permite un control completo del GLCD, integrando gráficos y texto en proyectos embebidos de forma eficiente.</p>
             </div>
-            <a href="#" class="btn">Leer más</a>
+            <a href="https://github.com/AdminMariano/PICDelayGenerator.exe" class="btn">ir a la pagina de descargas</a>
           </div>
 
           <!-- Puedes seguir agregando más artículos aquí -->
