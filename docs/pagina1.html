@@ -214,7 +214,7 @@
   </header>
 
   <nav>
-    <a href="#">Inicio</a>
+    <a href="index.html">Inicio</a>
     <a href="#">Contacto</a>
     <a href="#">Proyectos</a>
     <a href="#">Servicios</a>
@@ -227,11 +227,12 @@
     <div class="main">
       <div class="cover">
         <div class="articles">
+<!-- ******************************************************************* -->
+
           <div class="article">
             <h2>Controlando un GLCD GDM12864-5 con controlador ST7920 usando CCS C y PIC18F25K22</h2>
             <div class="ficha-tecnica">
               <ul>
-<!-- ******************************************************************* -->
 <section>
   <h2>Resumen del funcionamiento</h2>
   <p>
@@ -244,6 +245,8 @@
     El <strong>render</strong> se hace en RAM de usuario (<code>gdram</code>) y se “vuelca” al LCD con
     <code>glcd_update()</code>. Esto evita parpadeos y permite dibujar múltiples píxeles/figuras antes de refrescar.
   </p>
+  </p>
+<div style="text-align: center;"><img src="images/gdm12864k-1.png" alt="GLCD 128645K" style="width: 300px; height: auto;"></div>
 
   <div class="grid cols-2">
     <div class="note">
@@ -436,8 +439,13 @@ set_tris_b(mask);    // Dirección del puerto (1=input)
 
               </ul>
               <p>Este driver probado físicamente permite un control completo del GLCD, integrando gráficos y texto en proyectos embebidos de forma eficiente.</p>
+			  
+			  <div style="text-align: center;">
+              <a href="https://github.com/AdminMariano/CCS_GDM128645K_LIBRARY">descargar el codigo</a>
+              </div>
+		  
             </div>
-            <a href="#" class="btn">Leer más</a>
+            
           </div>
 
           <!-- Otros artículos -->
