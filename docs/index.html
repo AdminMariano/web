@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Electrónicos Embebidos</title>
-  <meta name="keywords" content="GLCD, electrónica, microcontroladores, Barranquilla, Colombia, PIC, ARM, diseño PCB, simulación Proteus, publicaciones técnicas">
+  <meta name="keywords" content="GLCD, electrónica, microcontroladores, Barranquilla, Colombia, PIC, ARM, diseño PCB, simulación Proteus, publicaciones técnicas" />
   <style>
     * {
       box-sizing: border-box;
@@ -175,6 +175,14 @@
       border-radius: 50%;
     }
 
+    .ficha-tecnica {
+      background-color: #1a1a1a;
+      padding: 15px;
+      border-left: 4px solid #0073e6;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
     footer {
       background-color: #1f1f1f;
       color: #cccccc;
@@ -223,27 +231,24 @@
         <div class="articles">
           <div class="article">
             <img src="articulo1.jpg" alt="Imagen artículo 1">
-
-<h2>Controlando un GLCD GDM12864-5 con controlador ST7920 usando CCS C y PIC18F25K22</h2>
-<ul>
-  <li><strong>Pantalla:</strong> GLCD GDM12864-5 (128x64 píxeles, monocromo)</li>
-  <li><strong>Controlador:</strong> ST7920 en modo paralelo 8 bits</li>
-  <li><strong>Microcontrolador:</strong> PIC18F25K22</li>
-  <li><strong>Lenguaje:</strong> CCS C Compiler</li>
-  <li><strong>Driver:</strong> Incluye inicialización en modo básico y gráfico</li>
-  <li><strong>Funciones:</strong> Dibujar píxeles, rellenar pantalla, actualizar con framebuffer, imprimir texto y gráficos</li>
-  <li><strong>Ventaja:</strong> Uso de memoria intermedia (double buffer) para evitar parpadeo y mejorar rendimiento</li>
-  <li><strong>Aplicaciones:</strong> Interfaces gráficas simples, menús, instrumentación, logotipos y monitoreo embebido</li>
-</ul>
-<p>Este driver probado físicamente permite un control completo del GLCD, integrando gráficos y texto en proyectos embebidos de forma eficiente.</p>
-
-
-
-
-            
+            <h2>Controlando un GLCD GDM12864-5 con controlador ST7920 usando CCS C y PIC18F25K22</h2>
+            <div class="ficha-tecnica">
+              <ul>
+                <li><strong>Pantalla:</strong> GLCD GDM12864-5 (128x64 píxeles, monocromo)</li>
+                <li><strong>Controlador:</strong> ST7920 en modo paralelo 8 bits</li>
+                <li><strong>Microcontrolador:</strong> PIC18F25K22</li>
+                <li><strong>Lenguaje:</strong> CCS C Compiler</li>
+                <li><strong>Driver:</strong> Inicialización en modo básico y gráfico</li>
+                <li><strong>Funciones:</strong> Dibujar píxeles, rellenar pantalla, framebuffer, texto y gráficos</li>
+                <li><strong>Ventaja:</strong> Double buffer para evitar parpadeo y mejorar rendimiento</li>
+                <li><strong>Aplicaciones:</strong> Interfaces gráficas, menús, instrumentación, logotipos</li>
+              </ul>
+              <p>Este driver probado físicamente permite un control completo del GLCD, integrando gráficos y texto en proyectos embebidos de forma eficiente.</p>
+            </div>
             <a href="#" class="btn">Leer más</a>
           </div>
 
+          <!-- Otros artículos -->
           <div class="article">
             <img src="articulo2.jpg" alt="Imagen artículo 2">
             <h2>Artículo de Portada 2</h2>
@@ -251,33 +256,7 @@
             <a href="#" class="btn">Leer más</a>
           </div>
 
-          <div class="article">
-            <img src="articulo3.jpg" alt="Imagen artículo 3">
-            <h2>Artículo de Portada 3</h2>
-            <p>Guías prácticas para simulaciones en Proteus y diseño PCB.</p>
-            <a href="#" class="btn">Leer más</a>
-          </div>
-
-          <div class="article">
-            <img src="articulo4.jpg" alt="Imagen artículo 4">
-            <h2>Artículo de Portada 4</h2>
-            <p>Microcontroladores PIC: control total desde registros.</p>
-            <a href="#" class="btn">Leer más</a>
-          </div>
-
-          <div class="article">
-            <img src="articulo5.jpg" alt="Imagen artículo 5">
-            <h2>Artículo de Portada 5</h2>
-            <p>Transición a ARM: primeros pasos y comparativas clave.</p>
-            <a href="#" class="btn">Leer más</a>
-          </div>
-
-          <div class="article">
-            <img src="articulo6.jpg" alt="Imagen artículo 6">
-            <h2>Artículo de Portada 6</h2>
-            <p>Publicaciones técnicas: cómo estructurar y presentar tu conocimiento.</p>
-            <a href="#" class="btn">Leer más</a>
-          </div>
+          <!-- Puedes seguir agregando más artículos aquí -->
         </div>
       </div>
 
@@ -305,6 +284,8 @@
 
 </body>
 </html>
+
+
 
 
 
