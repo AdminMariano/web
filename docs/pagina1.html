@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Electrónicos Embebidos</title>
+  <meta name="keywords" content="GLCD, electrónica, microcontroladores, Barranquilla, Colombia, PIC, ARM, diseño PCB, simulación Proteus, publicaciones técnicas" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #121212;
+      color: #e0e0e0;
+    }
+
+    header {
+      position: relative;
+      height: 300px;
+      background-image: url('images/banner.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: white;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 0;
+    }
+
+    header h1,
+    header p {
+      z-index: 1;
+      margin: 5px 0;
+    }
+
+    header h1 {
+      font-size: 48px;
+      font-weight: bold;
+    }
+
+    header p {
+      font-size: 20px;
+    }
+
+    nav {
+      background-color: #1f1f1f;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      padding: 15px 20px;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #333333;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .main {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 20px 0;
+    }
+
+    .cover {
+      flex: 3;
+      min-width: 300px;
+      background-color: #1e1e1e;
+      padding: 20px;
+      margin-right: 20px;
+      box-shadow: 0 0 10px rgba(255,255,255,0.05);
+    }
+
+    .cover img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .articles {
+      margin-top: 20px;
+    }
+
+    .article {
+      background-color: #2a2a2a;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 10px rgba(255,255,255,0.05);
+    }
+
+    .article img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #0073e6;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #005bb5;
+    }
+
+    .sidebar {
+      flex: 1;
+      min-width: 250px;
+      background-color: #1e1e1e;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(255,255,255,0.05);
+    }
+
+    .sidebar h3 {
+      margin-top: 0;
+      color: #80bfff;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sidebar ul li {
+      margin: 10px 0;
+    }
+
+    .sidebar ul li a {
+      text-decoration: none;
+      color: #66aaff;
+    }
+
+    .sidebar ul li a:hover {
+      text-decoration: underline;
+    }
+
+    .director-img {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .director-img img {
+      width: 100px;
+      border-radius: 50%;
+    }
+
+    .ficha-tecnica {
+      background-color: #1a1a1a;
+      padding: 15px;
+      border-left: 4px solid #0073e6;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    footer {
+      background-color: #1f1f1f;
+      color: #cccccc;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .main {
+        flex-direction: column;
+      }
+
+      .cover {
+        margin-right: 0;
+      }
+
+      .sidebar {
+        margin-top: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Electrónicos Embebidos</h1>
+    <p>Bienvenido a mi sitio web</p>
+  </header>
+
+  <nav>
+    <a href="#">Inicio</a>
+    <a href="#">Contacto</a>
+    <a href="#">Proyectos</a>
+    <a href="#">Servicios</a>
+    <a href="#">Nosotros</a>
+    <a href="#">Tienda</a>
+    <a href="#">Cómo Pagar</a>
+  </nav>
+
+  <div class="container">
+    <div class="main">
+      <div class="cover">
+        <div class="articles">
+          <div class="article">
+            <h2>Controlando un GLCD GDM12864-5 con controlador ST7920 usando CCS C y PIC18F25K22</h2>
+            <div class="ficha-tecnica">
+              <ul>
+<!-- ******************************************************************* -->
+<section>
+  <h2>Resumen del funcionamiento</h2>
+  <p>
+    Este <em>driver</em> controla un GLCD 128×64 con controlador <strong>ST7920</strong> en modo paralelo de 8 bits, usando
+    <strong>PORTB</strong> para datos y las señales en <strong>PORTC</strong>:
+    <code>RS→C0</code>, <code>RW→C1</code>, <code>E→C2</code>, <code>RST→C3</code>.
+    La línea <code>PSB</code> del display debe ir a <strong>Vcc</strong> (modo paralelo).
+  </p>
+  <p>
+    El <strong>render</strong> se hace en RAM de usuario (<code>gdram</code>) y se “vuelca” al LCD con
+    <code>glcd_update()</code>. Esto evita parpadeos y permite dibujar múltiples píxeles/figuras antes de refrescar.
+  </p>
+
+  <div class="grid cols-2">
+    <div class="note">
+      <h3>Mapa de memoria lógico</h3>
+      <ul>
+        <li>Resolución: <code>128×64</code>.</li>
+        <li>Se divide en 32 filas (<code>YVAL=32</code>) de 16 palabras de 16 bits (<code>XVAL=16</code>).</li>
+        <li>Cada palabra (16 bits) representa 16 píxeles horizontales.</li>
+        <li><code>glcd_DrawPixel(x,y,...)</code> calcula <code>v=y</code>, <code>h=x/16</code>, <code>b=15-(x%16)</code>.</li>
+        <li>Para <code>y&gt;31</code> se compensa <code>x+=128</code> (metodología usada en este driver).</li>
+      </ul>
+    </div>
+    <div class="note ok">
+      <h3>Protocolo y temporizado</h3>
+      <ul>
+        <li>Lecturas y “busy flag” conmutan <code>TRISB</code> a entrada temporalmente.</li>
+        <li>Se aumentaron los <code>delay_us()</code> alrededor de <code>E</code> para robustez.</li>
+        <li>Comandos de inicialización siguen la secuencia del datasheet (doble <code>0x30</code>, gráfico 0x34/0x36).</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>API del Driver</h2>
+
+  <h3>Inicialización</h3>
+  <ul>
+    <li><code>glcd_init_graph()</code>: modo gráfico (recomendado para dibujar). Limpia y actualiza.</li>
+    <li><code>glcd_init_basic()</code>: modo básico (texto interno del ST7920).</li>
+  </ul>
+
+  <h3>Acceso de bajo nivel</h3>
+  <ul>
+    <li><code>glcd_instruction(uint8)</code>, <code>glcd_data(uint8)</code>: envío al LCD.</li>
+    <li><code>glcd_readByte(address)</code>: lectura (respeta TRISB).</li>
+    <li><code>glcd_check_busy()</code>: espera a que BF=0 (PIN_B7).</li>
+  </ul>
+
+  <h3>Rasterizado en RAM y refresco</h3>
+  <ul>
+    <li><code>glcd_DrawPixel(int8 x,int8 y,int1 color)</code>: dibuja en <code>gdram</code> y marca <code>refresh=TRUE</code>.</li>
+    <li><code>glcd_fillScreen(ON|OFF)</code>: rellena GDRAM con 1 o 0; marca <code>refresh=TRUE</code>.</li>
+    <li><code>glcd_update()</code>: vuelca toda la GDRAM al LCD (si <code>refresh==TRUE</code>).</li>
+  </ul>
+
+  <div class="note warn">
+    <strong>Importante:</strong> Las operaciones que dibujan sólo modifican la memoria del usuario.
+    Nada se verá en el LCD hasta llamar a <code>glcd_update()</code>. Puedes dibujar muchas cosas y actualizar una sola vez.
+  </div>
+</section>
+
+<section>
+  <h2>Ejemplo mínimo (inicio + píxel + pantalla llena)</h2>
+  <pre><code>// &lt;main.c&gt; – CCS C (ejemplo mínimo)
+// Ajusta fuses/clock según tu proyecto
+#include &lt;18F25K22.h&gt;
+#device ADC=10
+#fuses NOWDT, INTRC_IO, NOMCLR, NOLVP, PUT, NOCPD
+#use delay(internal=64MHz)
+
+// Incluye tu driver tal cual lo compartiste
+#include "st7920_driver.c"   // renombra con el nombre real del archivo
+
+void main(void)
+{
+   glcd_init_graph();        // Modo gráfico
+   glcd_fillScreen(OFF);     // Limpia la GDRAM (apagado)
+   glcd_update();            // Refresca LCD
+
+   // Dibuja un píxel en (10,10)
+   glcd_DrawPixel(10, 10, ON);
+   glcd_update();            // ¡Ahora se ve!
+
+   while(TRUE) { }
+}</code></pre>
+</section>
+
+<section>
+  <h2>Ejemplo: dibujar una línea horizontal y un rectángulo hueco</h2>
+  <p>Como el driver expone sólo <code>DrawPixel</code>, aquí van helpers simples para figuras básicas:</p>
+  <pre><code>// Helpers sencillos basados en DrawPixel
+void glcd_hline(int x1, int x2, int y, int1 c){
+   int x; if(x2&lt;x1){int t=x1; x1=x2; x2=t;}
+   for(x=x1;x&lt;=x2;x++) glcd_DrawPixel(x,y,c);
+}
+void glcd_vline(int x, int y1, int y2, int1 c){
+   int y; if(y2&lt;y1){int t=y1; y1=y2; y2=t;}
+   for(y=y1;y&lt;=y2;y++) glcd_DrawPixel(x,y,c);
+}
+void glcd_rect_hollow(int x1,int y1,int x2,int y2,int1 c){
+   glcd_hline(x1,x2,y1,c);
+   glcd_hline(x1,x2,y2,c);
+   glcd_vline(x1,y1,y2,c);
+   glcd_vline(x2,y1,y2,c);
+}
+
+// Uso
+glcd_fillScreen(OFF);
+glcd_hline(5, 122, 10, ON);
+glcd_rect_hollow(20, 20, 100, 50, ON);
+glcd_update();</code></pre>
+</section>
+
+<section>
+  <h2>Ejemplo: texto 5×7 escalable (si ya tienes font5x7[])</h2>
+  <p>Si tu proyecto incluye <code>font5x7</code> y la rutina <code>glcd_text57()</code> (la que compartiste), úsala así:</p>
+  <pre><code>extern const unsigned int8 font5x7[][5];
+void glcd_text57(int x,int y,char* text,int size,int1 color); // tu implementación
+
+glcd_fillScreen(OFF);
+glcd_text57(2, 2, "HELLO", 1, ON);   // 5x7
+glcd_text57(2, 14, "WORLD", 2, ON);  // 10x14
+glcd_text57(2, 32, "GLCD", 3, ON);   // 15x21 (triplicado)
+glcd_update();</code></pre>
+</section>
+
+<section>
+  <h2>Ejemplo: animación suave (sin parpadeo)</h2>
+  <p>Dibuja varias cosas y refresca una sola vez por fotograma:</p>
+  <pre><code>int x = 5, y = 24, dx = 1;
+
+while(TRUE){
+   glcd_fillScreen(OFF);                 // limpia el backbuffer (GDRAM)
+   glcd_rect_hollow(x, y, x+20, y+10, ON);
+   // ... (dibuja más cosas si quieres)
+   glcd_update();                        // 1 solo refresco
+
+   x += dx;
+   if(x&lt;=0 || x+20&gt;=127) dx = -dx;
+   delay_ms(30);
+}</code></pre>
+</section>
+
+<section>
+  <h2>Buenas prácticas y notas eléctricas</h2>
+  <ul>
+    <li><strong>Alimentación estable</strong>: desacopla con 100 nF cerca del LCD y del PIC; añade 10 µF en la línea de 5 V.</li>
+    <li><strong>RST (C3)</strong>: el driver asertará reset al iniciar; puedes añadir un pull-up (~10 kΩ) si tu placa lo requiere.</li>
+    <li><strong>Entradas flotantes</strong>: si usas teclas/entradas, usa resistencias de pull-up/pull-down para evitar ruido que cause cuelgues.</li>
+    <li><strong>Temporizado</strong>: si subes el clock o cambias de PIC, conserva o incrementa ligeramente los <code>delay_us()</code> alrededor de <code>E</code>.</li>
+    <li><strong>Refresh</strong>: llama a <code>glcd_update()</code> sólo cuando termines un “lote” de dibujo; reduce parpadeo y tráfico al LCD.</li>
+    <li><strong>Compatibilidad</strong>: <code>PSB</code> a Vcc (paralelo); si usas serial del ST7920, este driver no aplica.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Tabla rápida de pines y macros</h2>
+  <pre><code>// Señales (PORTC)
+#define rs  PIN_C0   // Register Select
+#define rw  PIN_C1   // Read/Write
+#define e   PIN_C2   // Enable
+#define rst PIN_C3   // Reset
+
+// Datos (PORTB, D0..D7)
+output_b(value);     // Escribe 8 bits
+input_b();           // Lee 8 bits
+set_tris_b(mask);    // Dirección del puerto (1=input)
+
+/* Conexiones sugeridas:
+   ST7920 D0..D7  &lt;—&gt; PIC PORTB RB0..RB7
+   ST7920 RS      &lt;—&gt; PIC RC0
+   ST7920 RW      &lt;—&gt; PIC RC1
+   ST7920 E       &lt;—&gt; PIC RC2
+   ST7920 RST     &lt;—&gt; PIC RC3
+   ST7920 PSB     —&gt;  Vcc (paralelo)
+   Vdd/Vss/VO/LED según módulo
+*/</code></pre>
+</section>
+
+
+
+<hr/>
+
+<section>
+  <h2>Solución de problemas</h2>
+  <ul>
+    <li><strong>Se borra la pantalla al rato</strong>: revisa alimentación y ruido; agrega pull-ups donde proceda; mantén delays y no llames <code>update()</code> en bucles ultra-rápidos sin necesidad.</li>
+    <li><strong>Pantalla en blanco</strong>: confirma <code>PSB→Vcc</code>, orden de init (doble 0x30), y conexiones de datos D0–D7 con PORTB.</li>
+    <li><strong>Texto/bitmap invertido</strong>: verifica la función que genera el array (MSB-first) y la dirección de bits en <code>glcd_DrawPixel()</code> (<code>b = 15 - (x%16)</code>).</li>
+  </ul>
+</section>
+
+<footer style="margin:40px 0 20px;color:var(--muted)">
+  <p>Documento generado para el driver definitivo GDM12864-5 (ST7920) con PIC18F25K22 y CCS C.</p>
+</footer>
+
+<!-- *********************************************************************************************** -->
+
+
+              </ul>
+              <p>Este driver probado físicamente permite un control completo del GLCD, integrando gráficos y texto en proyectos embebidos de forma eficiente.</p>
+            </div>
+            <a href="#" class="btn">Leer más</a>
+          </div>
+
+          <!-- Otros artículos -->
+          <!-- Puedes seguir agregando más artículos aquí -->
+        </div>
+      </div>
+
+      <aside class="sidebar">
+        <h3>Secciones</h3>
+        <ul>
+          <li><a href="#">Tienda</a></li>
+          <li><a href="#">Microcontroladores</a></li>
+          <li><a href="#">Códigos</a></li>
+          <li><a href="#">Noticias</a></li>
+          <li><a href="#">Contacto</a></li>
+          <li><a href="#">Autor</a></li>
+        </ul>
+        <div class="director-img">
+          <img src="director.jpg" alt="Director de la página">
+          <p>Director Técnico</p>
+        </div>
+      </aside>
+    </div>
+
+    <footer>
+      <p>Corporación Técnica © 2025 | contacto@ejemplo.com | +57 300 000 0000</p>
+    </footer>
+  </div>
+
+</body>
+</html>
