@@ -38,6 +38,7 @@
 <section>
   <h2>Resumen del funcionamiento</h2>
   <p>
+<div style="text-align: center;"><img src="images/gdm12864k-1.png" alt="GLCD 128645K" style="width: 300px; height: auto;"></div>  
     Este <em>driver</em> controla un GLCD 128×64 con controlador <strong>ST7920</strong> en modo paralelo de 8 bits, usando
     <strong>PORTB</strong> para datos y las señales en <strong>PORTC</strong>:
     <code>RS→C0</code>, <code>RW→C1</code>, <code>E→C2</code>, <code>RST→C3</code>.
@@ -48,8 +49,22 @@
     <code>glcd_update()</code>. Esto evita parpadeos y permite dibujar múltiples píxeles/figuras antes de refrescar.
   </p>
   </p>
-<div style="text-align: center;"><img src="images/gdm12864k-1.png" alt="GLCD 128645K" style="width: 300px; height: auto;"></div>
-
+  
+   <p style="text-align: center;"><strong>Funcionamiento en físico</strong></p>
+  
+<div style="text-align: center;">
+    <iframe 
+      width="360" 
+      height="640" 
+      src="https://www.youtube.com/embed/T8pPV8oMHxY" 
+      title="YouTube Short" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen>
+    </iframe>  
+</div>   
+  </p>
+  </p>
   <div class="grid cols-2">
     <div class="note">
       <h3>Mapa de memoria lógico</h3>
@@ -223,6 +238,15 @@ set_tris_b(mask);    // Dirección del puerto (1=input)
 
 <hr/>
 
+  <iframe 
+    width="640" 
+    height="360"  
+    src="https://www.youtube.com/embed/3gVnvq2GzmY" 
+    title="YouTube Short" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen>
+  </iframe>	
+
 <section>
   <h2>Solución de problemas</h2>
   <ul>
@@ -279,4 +303,3 @@ set_tris_b(mask);    // Dirección del puerto (1=input)
 
 </body>
 </html>
-
