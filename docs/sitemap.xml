@@ -6,5 +6,10 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-  <!-- Asegúrate de que tus otras etiquetas <loc> tengan la URL completa de cada página -->
+  <url>
+    <loc>https://adminmariano.github.io/web/tu-otra-pagina.html</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
